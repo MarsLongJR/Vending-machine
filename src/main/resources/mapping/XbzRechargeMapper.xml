@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xbz.vpase.persistent.mapper.XbzRechargeMapper">
+  <resultMap id="BaseResultMap" type="com.xbz.vpase.persistent.entity.XbzRecharge">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="vip_id" jdbcType="INTEGER" property="vipId" />
+    <result column="accounts" jdbcType="DECIMAL" property="accounts" />
+    <result column="status" jdbcType="SMALLINT" property="status" />
+    <result column="pay_type" jdbcType="SMALLINT" property="payType" />
+    <result column="recharge_time" jdbcType="TIMESTAMP" property="rechargeTime" />
+    <result column="enable" jdbcType="BIT" property="enable" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, vip_id, accounts, status, pay_type, recharge_time, enable
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xbz_recharge
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from xbz_recharge
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xbz.vpase.persistent.entity.XbzRecharge">
+    insert into xbz_recharge (id, vip_id, accounts, 
+      status, pay_type, recharge_time, 
+      enable)
+    values (#{id,jdbcType=BIGINT}, #{vipId,jdbcType=INTEGER}, #{accounts,jdbcType=DECIMAL}, 
+      #{status,jdbcType=SMALLINT}, #{payType,jdbcType=SMALLINT}, #{rechargeTime,jdbcType=TIMESTAMP}, 
+      #{enable,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xbz.vpase.persistent.entity.XbzRecharge">
+    insert into xbz_recharge
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="vipId != null">
+        vip_id,
+      </if>
+      <if test="accounts != null">
+        accounts,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="rechargeTime != null">
+        recharge_time,
+      </if>
+      <if test="enable != null">
+        enable,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="vipId != null">
+        #{vipId,jdbcType=INTEGER},
+      </if>
+      <if test="accounts != null">
+        #{accounts,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=SMALLINT},
+      </if>
+      <if test="rechargeTime != null">
+        #{rechargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xbz.vpase.persistent.entity.XbzRecharge">
+    update xbz_recharge
+    <set>
+      <if test="vipId != null">
+        vip_id = #{vipId,jdbcType=INTEGER},
+      </if>
+      <if test="accounts != null">
+        accounts = #{accounts,jdbcType=DECIMAL},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=SMALLINT},
+      </if>
+      <if test="rechargeTime != null">
+        recharge_time = #{rechargeTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enable != null">
+        enable = #{enable,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xbz.vpase.persistent.entity.XbzRecharge">
+    update xbz_recharge
+    set vip_id = #{vipId,jdbcType=INTEGER},
+      accounts = #{accounts,jdbcType=DECIMAL},
+      status = #{status,jdbcType=SMALLINT},
+      pay_type = #{payType,jdbcType=SMALLINT},
+      recharge_time = #{rechargeTime,jdbcType=TIMESTAMP},
+      enable = #{enable,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>

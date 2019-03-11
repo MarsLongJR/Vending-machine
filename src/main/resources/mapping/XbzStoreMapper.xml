@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="XbzStore">
+  <resultMap id="BaseResultMap" type="com.xbz.vpase.persistent.entity.XbzStore">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="barcode" jdbcType="VARCHAR" property="barcode" />
+    <result column="store_name" jdbcType="VARCHAR" property="storeName" />
+    <result column="sys_code" jdbcType="VARCHAR" property="sysCode" />
+    <result column="sys_name" jdbcType="VARCHAR" property="sysName" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="standard" jdbcType="VARCHAR" property="standard" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="brand" jdbcType="VARCHAR" property="brand" />
+    <result column="create_id" jdbcType="INTEGER" property="createId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="length" jdbcType="DOUBLE" property="length" />
+    <result column="length_unit" jdbcType="VARCHAR" property="lengthUnit" />
+    <result column="wide" jdbcType="DOUBLE" property="wide" />
+    <result column="wide_unit" jdbcType="VARCHAR" property="wideUnit" />
+    <result column="height" jdbcType="DOUBLE" property="height" />
+    <result column="height_unit" jdbcType="VARCHAR" property="heightUnit" />
+    <result column="weight" jdbcType="DOUBLE" property="weight" />
+    <result column="weight_unit" jdbcType="VARCHAR" property="weightUnit" />
+    <result column="enable" jdbcType="BIT" property="enable" />
+    <result column="category_id" jdbcType="INTEGER" property="categoryId" />
+    <association property="category" column="category_id" javaType="com.xbz.vpase.persistent.entity.SysCategory" select="SysCategory.selectByPrimaryKey" ></association>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, barcode, store_name, sys_code, sys_name, price, standard, unit, brand, create_id, create_time,
+    length, length_unit, wide, wide_unit, height, height_unit, weight, weight_unit, enable, 
+    category_id
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xbz_store
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from xbz_store
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xbz.vpase.persistent.entity.XbzStore" useGeneratedKeys="true" keyProperty="id">
+    insert into xbz_store (id, barcode, store_name,
+      sys_code, sys_name, price, 
+      standard, unit, brand, 
+      create_id, create_time, length, 
+      length_unit, wide, wide_unit, 
+      height, height_unit, weight, 
+      weight_unit, enable, category_id
+      )
+    values (#{id,jdbcType=INTEGER}, #{barcode,jdbcType=VARCHAR}, #{storeName,jdbcType=VARCHAR},
+      #{sysCode,jdbcType=VARCHAR}, #{sysName,jdbcType=VARCHAR}, #{price,jdbcType=DECIMAL}, 
+      #{standard,jdbcType=VARCHAR}, #{unit,jdbcType=VARCHAR}, #{brand,jdbcType=VARCHAR}, 
+      #{createId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{length,jdbcType=DOUBLE}, 
+      #{lengthUnit,jdbcType=VARCHAR}, #{wide,jdbcType=DOUBLE}, #{wideUnit,jdbcType=VARCHAR}, 
+      #{height,jdbcType=DOUBLE}, #{heightUnit,jdbcType=VARCHAR}, #{weight,jdbcType=DOUBLE}, 
+      #{weightUnit,jdbcType=VARCHAR}, #{enable,jdbcType=BIT}, #{categoryId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xbz.vpase.persistent.entity.XbzStore" keyProperty="id" useGeneratedKeys="true">
+    insert into xbz_store
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="barcode != null">
+        barcode,
+      </if>
+      <if test="storeName != null">
+        store_name,
+      </if>
+      <if test="sysCode != null">
+        sys_code,
+      </if>
+      <if test="sysName != null">
+        sys_name,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="standard != null">
+        standard,
+      </if>
+      <if test="unit != null">
+        unit,
+      </if>
+      <if test="brand != null">
+        brand,
+      </if>
+      <if test="createId != null">
+        create_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="length != null">
+        length,
+      </if>
+      <if test="lengthUnit != null">
+        length_unit,
+      </if>
+      <if test="wide != null">
+        wide,
+      </if>
+      <if test="wideUnit != null">
+        wide_unit,
+      </if>
+      <if test="height != null">
+        height,
+      </if>
+      <if test="heightUnit != null">
+        height_unit,
+      </if>
+      <if test="weight != null">
+        weight,
+      </if>
+      <if test="weightUnit != null">
+        weight_unit,
+      </if>
+      <if test="enable != null">
+        enable,
+      </if>
+      <if test="categoryId != null">
+        category_id,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="barcode != null">
+        #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="storeName != null">
+        #{storeName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        #{sysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysName != null">
+        #{sysName,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="standard != null">
+        #{standard,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null">
+        #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="length != null">
+        #{length,jdbcType=DOUBLE},
+      </if>
+      <if test="lengthUnit != null">
+        #{lengthUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="wide != null">
+        #{wide,jdbcType=DOUBLE},
+      </if>
+      <if test="wideUnit != null">
+        #{wideUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null">
+        #{height,jdbcType=DOUBLE},
+      </if>
+      <if test="heightUnit != null">
+        #{heightUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="weightUnit != null">
+        #{weightUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=BIT},
+      </if>
+      <if test="categoryId != null">
+        #{categoryId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xbz.vpase.persistent.entity.XbzStore">
+    update xbz_store
+    <set>
+      <if test="barcode != null">
+        barcode = #{barcode,jdbcType=VARCHAR},
+      </if>
+      <if test="storeName != null">
+        store_name = #{storeName,jdbcType=VARCHAR},
+      </if>
+      <if test="sysCode != null">
+        sys_code = #{sysCode,jdbcType=VARCHAR},
+      </if>
+      <if test="sysName != null">
+        sys_name = #{sysName,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="standard != null">
+        standard = #{standard,jdbcType=VARCHAR},
+      </if>
+      <if test="unit != null">
+        unit = #{unit,jdbcType=VARCHAR},
+      </if>
+      <if test="brand != null">
+        brand = #{brand,jdbcType=VARCHAR},
+      </if>
+      <if test="createId != null">
+        create_id = #{createId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="length != null">
+        length = #{length,jdbcType=DOUBLE},
+      </if>
+      <if test="lengthUnit != null">
+        length_unit = #{lengthUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="wide != null">
+        wide = #{wide,jdbcType=DOUBLE},
+      </if>
+      <if test="wideUnit != null">
+        wide_unit = #{wideUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="height != null">
+        height = #{height,jdbcType=DOUBLE},
+      </if>
+      <if test="heightUnit != null">
+        height_unit = #{heightUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="weight != null">
+        weight = #{weight,jdbcType=DOUBLE},
+      </if>
+      <if test="weightUnit != null">
+        weight_unit = #{weightUnit,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        enable = #{enable,jdbcType=BIT},
+      </if>
+      <if test="categoryId != null">
+        category_id = #{categoryId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xbz.vpase.persistent.entity.XbzStore">
+    update xbz_store
+    set barcode = #{barcode,jdbcType=VARCHAR},
+      store_name = #{storeName,jdbcType=VARCHAR},
+      sys_code = #{sysCode,jdbcType=VARCHAR},
+      sys_name = #{sysName,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      standard = #{standard,jdbcType=VARCHAR},
+      unit = #{unit,jdbcType=VARCHAR},
+      brand = #{brand,jdbcType=VARCHAR},
+      create_id = #{createId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      length = #{length,jdbcType=DOUBLE},
+      length_unit = #{lengthUnit,jdbcType=VARCHAR},
+      wide = #{wide,jdbcType=DOUBLE},
+      wide_unit = #{wideUnit,jdbcType=VARCHAR},
+      height = #{height,jdbcType=DOUBLE},
+      height_unit = #{heightUnit,jdbcType=VARCHAR},
+      weight = #{weight,jdbcType=DOUBLE},
+      weight_unit = #{weightUnit,jdbcType=VARCHAR},
+      enable = #{enable,jdbcType=BIT},
+      category_id = #{categoryId,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+
+  <!--根据查询条件分页查询-->
+  <select id="selectXbzStoreList" resultMap="BaseResultMap" parameterType="com.xbz.vpase.request.XbzStoreRequest">
+    select <include refid="Base_Column_List"/> from sys_category
+    <where>
+      <if test="id!=null">
+        and id = #{id}
+      </if>
+      <if test="barcode!=null">
+        and barcode = #{barcode}
+      </if>
+      <if test="storeName!=null">
+        and store_name like '%{storeName}%'
+      </if>
+      <if test="sysCode!=null">
+        and sys_code = #{sysCode}
+      </if>
+      <if test="sysName!=null">
+        and sys_name like '%{sysName}%'
+      </if>
+      <if test="price!=null">
+        and price = #{price}
+      </if>
+      <if test="categoryId!=null">
+        and category_id = #{categoryId}
+      </if>
+      <if test="enable!=null">
+        and enable = #{enable}
+      </if>
+      <if test="startDate!=null">
+        and create_time &lt;=#{startDate}
+      </if>
+      <if test="endDate!=null">
+        and create_time &gt;=#{endDate}
+      </if>
+    </where>
+      <if test="start!=null and end!=null">
+        limit #{start},#{end}
+      </if>
+  </select>
+
+  <!--根据查询条件查询总条数-->
+  <select id="selectXbzStoreCount" resultType="int" parameterType="com.xbz.vpase.request.XbzStoreRequest">
+    select count(1) from sys_category
+    <where>
+      <if test="id!=null">
+        and id = #{id}
+      </if>
+      <if test="barcode!=null">
+        and barcode = #{barcode}
+      </if>
+      <if test="sysCode!=null">
+        and sys_code = #{sysCode}
+      </if>
+      <if test="price!=null">
+        and price = #{price}
+      </if>
+      <if test="categoryId!=null">
+        and category_id = #{categoryId}
+      </if>
+      <if test="enable!=null">
+        and enable = #{enable}
+      </if>
+      <if test="startDate!=null">
+        and create_time &lt;=#{startDate}
+      </if>
+      <if test="endDate!=null">
+        and create_time &gt;=#{endDate}
+      </if>
+      <if test="storeName!=null">
+        and store_name like '%{storeName}%'
+      </if>
+      <if test="sysName!=null">
+        and sys_name like '%{sysName}%'
+      </if>
+    </where>
+  </select>
+</mapper>

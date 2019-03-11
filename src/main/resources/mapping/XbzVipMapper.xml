@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xbz.vpase.persistent.mapper.XbzVipMapper">
+  <resultMap id="BaseResultMap" type="com.xbz.vpase.persistent.entity.XbzVip">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="account" jdbcType="VARCHAR" property="account" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="vip_name" jdbcType="VARCHAR" property="vipName" />
+    <result column="vip_code" jdbcType="VARCHAR" property="vipCode" />
+    <result column="wx_address" jdbcType="VARCHAR" property="wxAddress" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="status" jdbcType="SMALLINT" property="status" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
+    <result column="last_update_date" jdbcType="TIMESTAMP" property="lastUpdateDate" />
+    <result column="open_id" jdbcType="VARCHAR" property="openId" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="head_img" jdbcType="VARCHAR" property="headImg" />
+    <result column="vip_style" jdbcType="SMALLINT" property="vipStyle" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, account, password, vip_name, vip_code, wx_address, tel, email, status, create_date, 
+    last_update_date, open_id, sex, head_img, vip_style
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xbz_vip
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from xbz_vip
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xbz.vpase.persistent.entity.XbzVip">
+    insert into xbz_vip (id, account, password, 
+      vip_name, vip_code, wx_address, 
+      tel, email, status, 
+      create_date, last_update_date, open_id, 
+      sex, head_img, vip_style
+      )
+    values (#{id,jdbcType=INTEGER}, #{account,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{vipName,jdbcType=VARCHAR}, #{vipCode,jdbcType=VARCHAR}, #{wxAddress,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{status,jdbcType=SMALLINT}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{lastUpdateDate,jdbcType=TIMESTAMP}, #{openId,jdbcType=VARCHAR}, 
+      #{sex,jdbcType=VARCHAR}, #{headImg,jdbcType=VARCHAR}, #{vipStyle,jdbcType=SMALLINT}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xbz.vpase.persistent.entity.XbzVip">
+    insert into xbz_vip
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="account != null">
+        account,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="vipName != null">
+        vip_name,
+      </if>
+      <if test="vipCode != null">
+        vip_code,
+      </if>
+      <if test="wxAddress != null">
+        wx_address,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="createDate != null">
+        create_date,
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date,
+      </if>
+      <if test="openId != null">
+        open_id,
+      </if>
+      <if test="sex != null">
+        sex,
+      </if>
+      <if test="headImg != null">
+        head_img,
+      </if>
+      <if test="vipStyle != null">
+        vip_style,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="account != null">
+        #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="vipName != null">
+        #{vipName,jdbcType=VARCHAR},
+      </if>
+      <if test="vipCode != null">
+        #{vipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="wxAddress != null">
+        #{wxAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateDate != null">
+        #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openId != null">
+        #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="headImg != null">
+        #{headImg,jdbcType=VARCHAR},
+      </if>
+      <if test="vipStyle != null">
+        #{vipStyle,jdbcType=SMALLINT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xbz.vpase.persistent.entity.XbzVip">
+    update xbz_vip
+    <set>
+      <if test="account != null">
+        account = #{account,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="vipName != null">
+        vip_name = #{vipName,jdbcType=VARCHAR},
+      </if>
+      <if test="vipCode != null">
+        vip_code = #{vipCode,jdbcType=VARCHAR},
+      </if>
+      <if test="wxAddress != null">
+        wx_address = #{wxAddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastUpdateDate != null">
+        last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openId != null">
+        open_id = #{openId,jdbcType=VARCHAR},
+      </if>
+      <if test="sex != null">
+        sex = #{sex,jdbcType=VARCHAR},
+      </if>
+      <if test="headImg != null">
+        head_img = #{headImg,jdbcType=VARCHAR},
+      </if>
+      <if test="vipStyle != null">
+        vip_style = #{vipStyle,jdbcType=SMALLINT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xbz.vpase.persistent.entity.XbzVip">
+    update xbz_vip
+    set account = #{account,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      vip_name = #{vipName,jdbcType=VARCHAR},
+      vip_code = #{vipCode,jdbcType=VARCHAR},
+      wx_address = #{wxAddress,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      status = #{status,jdbcType=SMALLINT},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      last_update_date = #{lastUpdateDate,jdbcType=TIMESTAMP},
+      open_id = #{openId,jdbcType=VARCHAR},
+      sex = #{sex,jdbcType=VARCHAR},
+      head_img = #{headImg,jdbcType=VARCHAR},
+      vip_style = #{vipStyle,jdbcType=SMALLINT}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

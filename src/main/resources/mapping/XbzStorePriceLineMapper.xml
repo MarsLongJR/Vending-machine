@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="XbzStorePriceLine">
+  <resultMap id="BaseResultMap" type="com.xbz.vpase.persistent.entity.XbzStorePriceLine">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="store_id" jdbcType="BIGINT" property="storeId" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="modifier_id" jdbcType="INTEGER" property="modifierId" />
+    <result column="modification_time" jdbcType="TIMESTAMP" property="modificationTime" />
+    <result column="enable" jdbcType="BIT" property="enable" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, store_id, price, creator_id, create_time, modifier_id, modification_time, enable
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from xbz_store_price_line
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from xbz_store_price_line
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xbz.vpase.persistent.entity.XbzStorePriceLine">
+    insert into xbz_store_price_line (id, store_id, price, 
+      creator_id, create_time, modifier_id, 
+      modification_time, enable)
+    values (#{id,jdbcType=BIGINT}, #{storeId,jdbcType=BIGINT}, #{price,jdbcType=DECIMAL}, 
+      #{creatorId,jdbcType=INTEGER}, #{createTime,jdbcType=TIMESTAMP}, #{modifierId,jdbcType=INTEGER}, 
+      #{modificationTime,jdbcType=TIMESTAMP}, #{enable,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xbz.vpase.persistent.entity.XbzStorePriceLine">
+    insert into xbz_store_price_line
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="modifierId != null">
+        modifier_id,
+      </if>
+      <if test="modificationTime != null">
+        modification_time,
+      </if>
+      <if test="enable != null">
+        enable,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=BIGINT},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierId != null">
+        #{modifierId,jdbcType=INTEGER},
+      </if>
+      <if test="modificationTime != null">
+        #{modificationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xbz.vpase.persistent.entity.XbzStorePriceLine">
+    update xbz_store_price_line
+    <set>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=BIGINT},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifierId != null">
+        modifier_id = #{modifierId,jdbcType=INTEGER},
+      </if>
+      <if test="modificationTime != null">
+        modification_time = #{modificationTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="enable != null">
+        enable = #{enable,jdbcType=BIT},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xbz.vpase.persistent.entity.XbzStorePriceLine">
+    update xbz_store_price_line
+    set store_id = #{storeId,jdbcType=BIGINT},
+      price = #{price,jdbcType=DECIMAL},
+      creator_id = #{creatorId,jdbcType=INTEGER},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      modifier_id = #{modifierId,jdbcType=INTEGER},
+      modification_time = #{modificationTime,jdbcType=TIMESTAMP},
+      enable = #{enable,jdbcType=BIT}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <!--查询商品价格的最后一条记录-->
+  <select id="selectLastOfXbzStorePrice" resultMap="BaseResultMap" parameterType="com.xbz.vpase.persistent.entity.XbzStorePriceLine">
+    select <include refid="Base_Column_List"/> from xbz_store_line
+    <where>
+      <if test="storeId!=null">
+        and store_id = #{storeId}
+      </if>
+      <if test="enable!=null">
+        and enable = #{enable}
+      </if>
+    </where>
+    order by create_time desc limit 1
+  </select>
+
+  <!--根据商品id查询商品的所有价格记录-->
+  <select id="selectXbzStorePriceLineByStore" parameterType="int" resultMap="BaseResultMap">
+    select <include refid="Base_Column_List"/> from xbz_store_price_line where store_id = #{storeId}
+  </select>
+</mapper>

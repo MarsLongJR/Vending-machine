@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xbz.vpase.persistent.mapper.XbzMachineMapper">
+  <resultMap id="BaseResultMap" type="com.xbz.vpase.persistent.entity.XbzMachine">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="machine_name" jdbcType="VARCHAR" property="machineName" />
+    <result column="machine_code" jdbcType="VARCHAR" property="machineCode" />
+    <result column="machine_type" jdbcType="SMALLINT" property="machineType" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="status" jdbcType="SMALLINT" property="status" />
+    <result column="creator_id" jdbcType="INTEGER" property="creatorId" />
+    <result column="connect_status" jdbcType="BIT" property="connectStatus" />
+    <result column="temperature_status" jdbcType="SMALLINT" property="temperatureStatus" />
+    <result column="address_id" jdbcType="INTEGER" property="addressId" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="open_time" jdbcType="TIMESTAMP" property="openTime" />
+    <result column="off_time" jdbcType="TIMESTAMP" property="offTime" />
+    <result column="channel_num" jdbcType="INTEGER" property="channelNum" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, machine_name, machine_code, machine_type, create_time, status, creator_id, connect_status, 
+    temperature_status, address_id, creator, open_time, off_time, channel_num
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xbz_machine
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from xbz_machine
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.xbz.vpase.persistent.entity.XbzMachine">
+    insert into xbz_machine (id, machine_name, machine_code, 
+      machine_type, create_time, status, 
+      creator_id, connect_status, temperature_status,
+      address_id, creator, open_time, 
+      off_time, channel_num)
+    values (#{id,jdbcType=INTEGER}, #{machineName,jdbcType=VARCHAR}, #{machineCode,jdbcType=VARCHAR}, 
+      #{machineType,jdbcType=SMALLINT}, #{createTime,jdbcType=TIMESTAMP}, #{status,jdbcType=SMALLINT}, 
+      #{creatorId,jdbcType=INTEGER}, #{connectStatus,jdbcType=BIT}, #{temperatureStatus,jdbcType=SMALLINT},
+      #{addressId,jdbcType=INTEGER}, #{creator,jdbcType=VARCHAR}, #{openTime,jdbcType=TIMESTAMP}, 
+      #{offTime,jdbcType=TIMESTAMP}, #{channelNum,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xbz.vpase.persistent.entity.XbzMachine">
+    insert into xbz_machine
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="machineName != null">
+        machine_name,
+      </if>
+      <if test="machineCode != null">
+        machine_code,
+      </if>
+      <if test="machineType != null">
+        machine_type,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="creatorId != null">
+        creator_id,
+      </if>
+      <if test="connectStatus != null">
+        connect_status,
+      </if>
+      <if test="temperatureStatus != null">
+        temperature_status,
+      </if>
+      <if test="addressId != null">
+        address_id,
+      </if>
+      <if test="creator != null">
+        creator,
+      </if>
+      <if test="openTime != null">
+        open_time,
+      </if>
+      <if test="offTime != null">
+        off_time,
+      </if>
+      <if test="channelNum != null">
+        channel_num,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="machineName != null">
+        #{machineName,jdbcType=VARCHAR},
+      </if>
+      <if test="machineCode != null">
+        #{machineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="machineType != null">
+        #{machineType,jdbcType=SMALLINT},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="creatorId != null">
+        #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="connectStatus != null">
+        #{connectStatus,jdbcType=BIT},
+      </if>
+      <if test="temperatureStatus != null">
+        #{temperatureStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="addressId != null">
+        #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null">
+        #{openTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offTime != null">
+        #{offTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelNum != null">
+        #{channelNum,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xbz.vpase.persistent.entity.XbzMachine">
+    update xbz_machine
+    <set>
+      <if test="machineName != null">
+        machine_name = #{machineName,jdbcType=VARCHAR},
+      </if>
+      <if test="machineCode != null">
+        machine_code = #{machineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="machineType != null">
+        machine_type = #{machineType,jdbcType=SMALLINT},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="creatorId != null">
+        creator_id = #{creatorId,jdbcType=INTEGER},
+      </if>
+      <if test="connectStatus != null">
+        connect_status = #{connectStatus,jdbcType=BIT},
+      </if>
+      <if test="temperatureStatus != null">
+        temperature_status = #{temperatureStatus,jdbcType=SMALLINT},
+      </if>
+      <if test="addressId != null">
+        address_id = #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="creator != null">
+        creator = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="openTime != null">
+        open_time = #{openTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="offTime != null">
+        off_time = #{offTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="channelNum != null">
+        channel_num = #{channelNum,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xbz.vpase.persistent.entity.XbzMachine">
+    update xbz_machine
+    set machine_name = #{machineName,jdbcType=VARCHAR},
+      machine_code = #{machineCode,jdbcType=VARCHAR},
+      machine_type = #{machineType,jdbcType=SMALLINT},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      status = #{status,jdbcType=SMALLINT},
+      creator_id = #{creatorId,jdbcType=INTEGER},
+      connect_status = #{connectStatus,jdbcType=BIT},
+      temperature_status = #{temperatureStatus,jdbcType=SMALLINT},
+      address_id = #{addressId,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=VARCHAR},
+      open_time = #{openTime,jdbcType=TIMESTAMP},
+      off_time = #{offTime,jdbcType=TIMESTAMP},
+      channel_num = #{channelNum,jdbcType=INTEGER}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

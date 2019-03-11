@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="XbzOrderDetail">
+  <resultMap id="BaseResultMap" type="com.xbz.vpase.persistent.entity.XbzOrderDetail">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="store_id" jdbcType="INTEGER" property="storeId" />
+    <result column="quantity" jdbcType="SMALLINT" property="quantity" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="enable" jdbcType="BOOLEAN" property="enable" />
+    <association property="store" column="store_id" javaType="com.xbz.vpase.persistent.entity.XbzStore" select="XbzStore.selectByPrimaryKey"></association>
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, order_id, store_id, quantity, price,enable
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xbz_order_detail
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from xbz_order_detail
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xbz.vpase.persistent.entity.XbzOrderDetail" useGeneratedKeys="true" keyProperty="id">
+    insert into xbz_order_detail (id, order_id, store_id, 
+      quantity, price,enable)
+    values (#{id,jdbcType=BIGINT}, #{orderId,jdbcType=BIGINT}, #{storeId,jdbcType=INTEGER}, 
+      #{quantity,jdbcType=SMALLINT}, #{price,jdbcType=DECIMAL}, #{enable,jdbcType=BOOLEAN})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xbz.vpase.persistent.entity.XbzOrderDetail" keyProperty="id" useGeneratedKeys="true">
+    insert into xbz_order_detail
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="storeId != null">
+        store_id,
+      </if>
+      <if test="quantity != null">
+        quantity,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="enable != null">
+        enable,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="storeId != null">
+        #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="quantity != null">
+        #{quantity,jdbcType=SMALLINT},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=BOOLEAN},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xbz.vpase.persistent.entity.XbzOrderDetail">
+    update xbz_order_detail
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="storeId != null">
+        store_id = #{storeId,jdbcType=INTEGER},
+      </if>
+      <if test="quantity != null">
+        quantity = #{quantity,jdbcType=SMALLINT},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="enable != null">
+        enable = #{enable,jdbcType=BOOLEAN},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xbz.vpase.persistent.entity.XbzOrderDetail">
+    update xbz_order_detail
+    set order_id = #{orderId,jdbcType=BIGINT},
+      store_id = #{storeId,jdbcType=INTEGER},
+      quantity = #{quantity,jdbcType=SMALLINT},
+      price = #{price,jdbcType=DECIMAL},
+      enable = #{enable,jdbcType=BOOLEAN}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <!--根据订单查询订单详情-->
+  <select id="selectXbzStoreDetailByOrderId" resultMap="BaseResultMap" parameterType="long">
+    select <include refid="Base_Column_List"/> from xbz_store_detail
+    <where>
+      <if test="orderId!=null">
+        and order_id = #{orderId}
+      </if>
+      and enable = true
+    </where>
+  </select>
+</mapper>

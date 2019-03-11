@@ -1,0 +1,318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="XbzOrder">
+  <resultMap id="BaseResultMap" type="com.xbz.vpase.persistent.entity.XbzOrder">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_code" jdbcType="VARCHAR" property="orderCode" />
+    <result column="pickup_code" jdbcType="VARCHAR" property="pickupCode" />
+    <result column="tel" jdbcType="VARCHAR" property="tel" />
+    <result column="total_price" jdbcType="DECIMAL" property="totalPrice" />
+    <result column="order_type" jdbcType="INTEGER" property="orderType" />
+    <result column="pay_price" jdbcType="DECIMAL" property="payPrice" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="address_id" jdbcType="INTEGER" property="addressId" />
+    <result column="enable" jdbcType="BIT" property="enable" />
+    <result column="distribution_type" jdbcType="SMALLINT" property="distributionType" />
+    <result column="machine_code" jdbcType="VARCHAR" property="machineCode" />
+    <result column="pay_type" jdbcType="SMALLINT" property="payType" />
+    <result column="link_man" jdbcType="VARCHAR" property="linkMan" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, order_code, pickup_code, tel, total_price, order_type, pay_price, create_time, 
+    user_id, address_id, enable, distribution_type, machine_code, pay_type,link_man
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from xbz_order
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from xbz_order
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xbz.vpase.persistent.entity.XbzOrder" keyProperty="id" useGeneratedKeys="true">
+    insert into xbz_order (id, order_code, pickup_code, 
+      tel, total_price, order_type, 
+      pay_price, create_time, user_id, 
+      address_id, enable, distribution_type, 
+      machine_code, pay_type,link_man)
+    values (#{id,jdbcType=BIGINT}, #{orderCode,jdbcType=VARCHAR}, #{pickupCode,jdbcType=VARCHAR}, 
+      #{tel,jdbcType=VARCHAR}, #{totalPrice,jdbcType=DECIMAL}, #{orderType,jdbcType=INTEGER}, 
+      #{payPrice,jdbcType=DECIMAL}, #{createTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=INTEGER}, 
+      #{addressId,jdbcType=INTEGER}, #{enable,jdbcType=BIT}, #{distributionType,jdbcType=SMALLINT}, 
+      #{machineCode,jdbcType=VARCHAR}, #{payType,jdbcType=SMALLINT}, #{linkMan,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xbz.vpase.persistent.entity.XbzOrder" useGeneratedKeys="true" keyProperty="id">
+    insert into xbz_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderCode != null">
+        order_code,
+      </if>
+      <if test="pickupCode != null">
+        pickup_code,
+      </if>
+      <if test="tel != null">
+        tel,
+      </if>
+      <if test="totalPrice != null">
+        total_price,
+      </if>
+      <if test="orderType != null">
+        order_type,
+      </if>
+      <if test="payPrice != null">
+        pay_price,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="addressId != null">
+        address_id,
+      </if>
+      <if test="enable != null">
+        enable,
+      </if>
+      <if test="distributionType != null">
+        distribution_type,
+      </if>
+      <if test="machineCode != null">
+        machine_code,
+      </if>
+      <if test="payType != null">
+        pay_type,
+      </if>
+      <if test="linkMan != null">
+        link_man,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderCode != null">
+        #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pickupCode != null">
+        #{pickupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null">
+        #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderType != null">
+        #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="payPrice != null">
+        #{payPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="addressId != null">
+        #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=BIT},
+      </if>
+      <if test="distributionType != null">
+        #{distributionType,jdbcType=SMALLINT},
+      </if>
+      <if test="machineCode != null">
+        #{machineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null">
+        #{payType,jdbcType=SMALLINT},
+      </if>
+      <if test="LinkMan != null">
+        #{LinkMan,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xbz.vpase.persistent.entity.XbzOrder">
+    update xbz_order
+    <set>
+      <if test="orderCode != null">
+        order_code = #{orderCode,jdbcType=VARCHAR},
+      </if>
+      <if test="pickupCode != null">
+        pickup_code = #{pickupCode,jdbcType=VARCHAR},
+      </if>
+      <if test="tel != null">
+        tel = #{tel,jdbcType=VARCHAR},
+      </if>
+      <if test="totalPrice != null">
+        total_price = #{totalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderType != null">
+        order_type = #{orderType,jdbcType=INTEGER},
+      </if>
+      <if test="payPrice != null">
+        pay_price = #{payPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="addressId != null">
+        address_id = #{addressId,jdbcType=INTEGER},
+      </if>
+      <if test="enable != null">
+        enable = #{enable,jdbcType=BIT},
+      </if>
+      <if test="distributionType != null">
+        distribution_type = #{distributionType,jdbcType=SMALLINT},
+      </if>
+      <if test="machineCode != null">
+        machine_code = #{machineCode,jdbcType=VARCHAR},
+      </if>
+      <if test="payType != null">
+        pay_type = #{payType,jdbcType=SMALLINT},
+      </if>
+      <if test="linkMan != null">
+        link_man = #{linkMan,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xbz.vpase.persistent.entity.XbzOrder">
+    update xbz_order
+    set order_code = #{orderCode,jdbcType=VARCHAR},
+      pickup_code = #{pickupCode,jdbcType=VARCHAR},
+      tel = #{tel,jdbcType=VARCHAR},
+      total_price = #{totalPrice,jdbcType=DECIMAL},
+      order_type = #{orderType,jdbcType=INTEGER},
+      pay_price = #{payPrice,jdbcType=DECIMAL},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      user_id = #{userId,jdbcType=INTEGER},
+      address_id = #{addressId,jdbcType=INTEGER},
+      enable = #{enable,jdbcType=BIT},
+      distribution_type = #{distributionType,jdbcType=SMALLINT},
+      machine_code = #{machineCode,jdbcType=VARCHAR},
+      pay_type = #{payType,jdbcType=SMALLINT},
+      link_man = #{linkMan,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <!--根据查询条件查询订单，按订单倒叙查询-->
+  <select id="selectXbzOrderList" resultMap="BaseResultMap" parameterType="com.xbz.vpase.request.XbzOrderRequest">
+    select <include refid="Base_Column_List"/> from xbz_order
+    <where>
+      <if test="orderCode != null">
+        and order_code = #{orderCode}
+      </if>
+      <if test="pickupCode != null">
+        and pickup_code = #{pickupCode}
+      </if>
+      <if test="totalPrice != null">
+        and total_price = #{totalPrice}
+      </if>
+      <if test="orderType != null">
+        and order_type = #{orderType}
+      </if>
+      <if test="payPrice != null">
+        and pay_price = #{payPrice}
+      </if>
+      <if test="userId != null">
+        and user_id = #{userId}
+      </if>
+      <if test="addressId != null">
+        and address_id = #{addressId}
+      </if>
+      <if test="enable != null">
+        and enable = #{enable}
+      </if>
+      <if test="distributionType != null">
+        and distribution_type = #{distributionType}
+      </if>
+      <if test="machineCode != null">
+        and machine_code = #{machineCode}
+      </if>
+      <if test="payType != null">
+        and pay_type = #{payType}
+      </if>
+      <if test="startDate != null">
+        and create_time &gt;= #{startDate}
+      </if>
+      <if test="endDate != null">
+        and create_time &gt;= #{endDate}
+      </if>
+      <if test="tel != null">
+        and tel like '%{tel}%'
+      </if>
+      <if test="linkMan != null">
+        and link_man like '%{linkMan}%'
+      </if>
+    </where>
+    order by create_time desc
+    <if test="start!=null and end!=null">
+      limit #{start},#{end}
+    </if>
+  </select>
+
+  <!--根据查询条件查询订单总条数-->
+  <select id="selectXbzOrderCount" resultType="int" parameterType="com.xbz.vpase.request.XbzOrderRequest">
+    select count(1) from xbz_order
+    <where>
+      <if test="orderCode != null">
+        and order_code = #{orderCode}
+      </if>
+      <if test="pickupCode != null">
+        and pickup_code = #{pickupCode}
+      </if>
+      <if test="totalPrice != null">
+        and total_price = #{totalPrice}
+      </if>
+      <if test="orderType != null">
+        and order_type = #{orderType}
+      </if>
+      <if test="payPrice != null">
+        and pay_price = #{payPrice}
+      </if>
+      <if test="userId != null">
+        and user_id = #{userId}
+      </if>
+      <if test="addressId != null">
+        and address_id = #{addressId}
+      </if>
+      <if test="enable != null">
+        and enable = #{enable}
+      </if>
+      <if test="distributionType != null">
+        and distribution_type = #{distributionType}
+      </if>
+      <if test="machineCode != null">
+        and machine_code = #{machineCode}
+      </if>
+      <if test="payType != null">
+        and pay_type = #{payType}
+      </if>
+      <if test="startDate != null">
+        and create_time &gt;= #{startDate}
+      </if>
+      <if test="endDate != null">
+        and create_time &gt;= #{endDate}
+      </if>
+      <if test="tel != null">
+        and tel like '%{tel}%'
+      </if>
+      <if test="linkMan != null">
+        and link_man like '%{linkMan}%'
+      </if>
+    </where>
+  </select>
+</mapper>

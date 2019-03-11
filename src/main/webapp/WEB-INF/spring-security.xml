@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+             xmlns:beans="http://www.springframework.org/schema/beans"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+           http://www.springframework.org/schema/security
+           http://www.springframework.org/schema/security/spring-security-4.2.xsd">
+    <!-- 登录页面排除在页面 -->
+    <http pattern="/res/**" security="none"/>
+    <http pattern="/*/*_allow" security="none"/>
+    <http pattern="/token/*" security="none"/>
+    <http pattern="/*.jsp" security="none"/>
+    <http pattern="/*.png" security="none"/>
+    <http pattern="/*.ico" security="none"/>
+    <http pattern="/*.txt" security="none"/>
+    <http pattern="/css/**" security="none"/>
+    <http pattern="/libs/**" security="none"/>
+    <http pattern="/uploadFile/**" security="none"/>
+    <http pattern="/statistic/**" security="none"/>
+    <http pattern="/js/**" security="none"/>
+    <http pattern="/images/**" security="none"/>
+    <http pattern="/new/**" security="none"/>
+    <http pattern="/img/**" security="none"/>
+    <http pattern="/Upload/**" security="none"/>
+    <http pattern="/plugins/**" security="none"/>
+    <http pattern="/assets/**" security="none"/>
+    <http pattern="/public/**" security="none"/>
+    <http pattern="/404.html" security="none"/>
+    <http pattern="/androidDownloadPackage/app-release.apk" security="none"/>
+    <http auto-config="false" entry-point-ref="authEntryPoint">
+        <csrf disabled="true"/>      <!--springSecurity4的新特性，防止csrf攻击，此处关闭-->
+        <!--springSecurity4的新特性，防止frame内嵌攻击，默认deny，现设置为SAMEORIGIN-->
+        <headers>
+            <frame-options policy="SAMEORIGIN"/>
+        </headers>
+        <!-- 自定义的cacheGet,判断在跳转登录页是不是ajax请求，如果是则不缓存，避免ajax跳转登陆后，只返回ajax结果，不返回页面 -->
+        <request-cache ref="httpSessionRequestCache"/>
+        <!-- 登陆退出配置 -->
+        <logout logout-url="/j_spring_security_logout" logout-success-url="/login/getLoginPage_allow"/>
+        <!-- <intercept-url pattern="/login.jsp" filters="none"/>
+        <intercept-url pattern="/**" filters="none"/> -->
+
+        <!--注释:springScurity3的写法中 access="ROLE_GENERAL"-->
+        <intercept-url pattern="/**" access="hasRole('ROLE_GENERAL')"/>
+        <form-login login-page="/login/getLoginPage_allow"
+                    default-target-url=""
+                    authentication-failure-url="/failed.jsp"
+                    login-processing-url="/j_spring_security_check"/>
+        <!--2419200-->
+        <remember-me key="remember" token-validity-seconds="2419200"/>
+        <!-- 检测失效的sessionId,超时时定位到另外一个URL -->
+        <session-management invalid-session-url="/login/getLoginPage_allow">
+            <concurrency-control max-sessions="1"
+                                 error-if-maximum-exceeded="false"/>
+        </session-management>
+        <custom-filter before="FORM_LOGIN_FILTER" ref="validateCodeAuthenticationFilter" />
+        <custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="myFilter" />
+    </http>
+
+    <!-- 开启方法级别的保护(使用SPEL表达式的高级保护) -->
+    <global-method-security pre-post-annotations="enabled"></global-method-security>
+    <beans:bean id="myFilter" class="com.xbz.vpase.security.MyFilterSecurityInterceptor">
+        <beans:property name="authenticationManager" ref="authenticationManager"></beans:property>
+        <beans:property name="accessDecisionManager" ref="accessDecisionManager"></beans:property>
+        <beans:property name="securityMetadataSource" ref="securityMetadataSource"></beans:property>
+    </beans:bean>
+
+    <authentication-manager alias="authenticationManager">
+        <authentication-provider user-service-ref="userDetailService">
+            <!-- <password-encoder hash="md5"></password-encoder> -->
+        </authentication-provider>
+        <authentication-provider ref="rememberMeAuthenticationProvider"></authentication-provider>
+    </authentication-manager>
+
+    <!-- 登录结点-->
+    <beans:bean id="authEntryPoint" class="com.xbz.vpase.security.AjaxAwareLoginUrlAuthenticationEntryPoint" scope="singleton">
+        <beans:constructor-arg name="loginFormUrl" value="/login/getLoginPage_allow"/>
+    </beans:bean>
+    <!-- 自定义的登录缓存，用于修改ajax登录创建的缓存-->
+    <beans:bean id="httpSessionRequestCache" class="com.xbz.vpase.security.HttpSessionRequestCache">
+        <beans:property name="paramName" value="toUrl"/><!-- ajax提交的登录后页面的参数名-->
+    </beans:bean>
+    <!--访问决策器， 拿到用户所拥有的权限，与权限配置一一进行比较，来判断是否能够访问 -->
+    <beans:bean id="accessDecisionManager" class="com.xbz.vpase.security.MyAccessDecisionManager"></beans:bean>
+
+    <!-- 该类获取路径资源与权限间的对应关系，并返回访问路径索取要的权限 -->
+    <beans:bean id="securityMetadataSource" class="com.xbz.vpase.security.MyInvocationSecurityMetadataSource" init-method="loadResourceDefine">
+        <beans:constructor-arg><beans:ref bean="sqlSessionTemplate"/></beans:constructor-arg>
+    </beans:bean>
+    <!-- 该类获取的登录用户的密码，角色信息，权限 -->
+    <beans:bean id="userDetailService" class="com.xbz.vpase.security.MyUserDetailService"></beans:bean>
+    <!-- 会话注册表 -->
+    <beans:bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl"></beans:bean>
+    <!-- 在线session控制策略 ,实现控制异地登录数-->
+    <beans:bean id="sas" class="org.springframework.security.web.authentication.session.ConcurrentSessionControlAuthenticationStrategy">
+        <beans:constructor-arg name="sessionRegistry" ref="sessionRegistry" />
+        <beans:property name="maximumSessions" value="2" />
+        <beans:property name="exceptionIfMaximumExceeded" value="false" /><!-- false时超过最大session时也不报登录异常 -->
+    </beans:bean>
+    <!-- 自定义的验证码过滤器 -->
+    <beans:bean id="validateCodeAuthenticationFilter"
+                class="com.xbz.vpase.security.ValidateCodeAuthenticationFilter">
+        <beans:property name="postOnly" value="true"></beans:property>
+        <beans:property name="sessionAuthenticationStrategy" ref="sas"/><!--此配置可实现获取所有登录用户信息 -->
+        <beans:property name="authenticationSuccessHandler" ref="loginLogAuthenticationSuccessHandler"></beans:property>
+        <beans:property name="authenticationFailureHandler" ref="myAuthenticationFailureHandler"></beans:property>
+        <beans:property name="authenticationManager" ref="authenticationManager"></beans:property>
+        <beans:property name="rememberMeServices" ref="rememberMeServices"></beans:property>
+        <beans:constructor-arg><beans:ref bean="sqlSessionFactory"/></beans:constructor-arg>
+    </beans:bean>
+
+    <beans:bean id="loginLogAuthenticationSuccessHandler"
+                class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+        <beans:property name="defaultTargetUrl" value="/login/userLogin"></beans:property>
+    </beans:bean>
+    <beans:bean id="myAuthenticationFailureHandler"
+                class="com.xbz.vpase.security.MyAuthenticationFailureHandler">
+        <beans:property name="defaultFailureUrl" value="/login/getLoginPage_allow"></beans:property>
+    </beans:bean>
+    <beans:bean id="rememberMeServices" class="org.springframework.security.web.authentication.rememberme.TokenBasedRememberMeServices">
+        <beans:constructor-arg name="key" value="remember"/>
+        <beans:constructor-arg name="userDetailsService" ref="userDetailService"/>
+        <beans:property  name="alwaysRemember" value="false"/>
+        <beans:property  name="tokenValiditySeconds" value="432000"/>
+        <beans:property  name="parameter" value="_spring_security_remember_me"/>
+    </beans:bean>
+    <beans:bean id="rememberMeAuthenticationProvider"  class="org.springframework.security.authentication.RememberMeAuthenticationProvider">
+        <beans:constructor-arg name="key" value="remember"/>
+    </beans:bean>
+</beans:beans>

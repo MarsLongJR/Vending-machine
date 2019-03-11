@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d4054504-e8c4-4446-b758-5e9b690f3005" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FUSProjectUsageTrigger">
+    <session id="-1716002047">
+      <usages-collector id="statistics.lifecycle.project">
+        <counts>
+          <entry key="project.closed" value="9" />
+          <entry key="project.open.time.1" value="1" />
+          <entry key="project.open.time.2" value="1" />
+          <entry key="project.open.time.22" value="1" />
+          <entry key="project.open.time.3" value="3" />
+          <entry key="project.open.time.4" value="2" />
+          <entry key="project.open.time.9" value="2" />
+          <entry key="project.opened" value="10" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.open">
+        <counts>
+          <entry key="java" value="33" />
+          <entry key="pom" value="1" />
+          <entry key="properties" value="2" />
+          <entry key="xml" value="5" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.open">
+        <counts>
+          <entry key="JAVA" value="33" />
+          <entry key="Properties" value="2" />
+          <entry key="XML" value="6" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.extensions.edit">
+        <counts>
+          <entry key="java" value="414" />
+          <entry key="xml" value="177" />
+        </counts>
+      </usages-collector>
+      <usages-collector id="statistics.file.types.edit">
+        <counts>
+          <entry key="JAVA" value="414" />
+          <entry key="XML" value="177" />
+        </counts>
+      </usages-collector>
+    </session>
+  </component>
+  <component name="FileEditorManager">
+    <leaf />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/resources/spring/shiro-cofig.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xbz/orange/realm/ShiroDbRealm.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xbz/orange/utils/AuthUtil.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xbz/orange/utils/WxConstants.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xbz/orange/controller/AdressController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xbz/orange/vo/ResultJson.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xbz/orange/utils/MD5Util.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xbz/orange/service/imp/infac/vipServiceInfac.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/Balance.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/dto/LoginPojo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xbz/orange/persistent/entity/dto/LoginPojo.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xbz/orange/persistent/mapper/VipMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/xbz/orange/service/imp/VipServiceImp.java" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="10" />
+    <option name="y" value="15" />
+    <option name="width" value="1275" />
+    <option name="height" value="945" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="vpase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vpase" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vpase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vpase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vpase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vpase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vpase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vpase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vpase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vpase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vpase" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vpase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="vpase" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="vpase" type="462c0819:PsiDirectoryNode" />
+              <item name="controller" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="vpase" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="vpase" type="58d84e3e:PackageViewProjectNode" />
+              <item name="vpase" type="616d4139:PackageViewModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+      <pane id="AndroidView" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1546595211785" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.xbz.orange.service.imp" />
+      <recent name="com.xbz.orange.service.imp.infac" />
+      <recent name="com.xbz.orange.Utils" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\juice-SSM\vpase\src\main\java\com\xbz\orange\persistent\entity" />
+      <recent name="E:\juice-SSM\vpase\src\main\java\com\xbz\orange\entity" />
+      <recent name="E:\juice-SSM\vpase\src\main\java\com\xbz\orange" />
+      <recent name="E:\juice-SSM\vpase\src\main\java\com\xbz\orange\utils" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration" cleanupOnStartRun="true">
+    <configuration>C:\Users\admin\AppData\Roaming\Subversion</configuration>
+    <supportedVersion>125</supportedVersion>
+  </component>
+  <component name="SvnFileUrlMappingImpl">
+    <option name="myMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\juice-SSM\vpase" />
+          <option name="myCopyRoot" value="E:\juice-SSM\vpase" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+    <option name="myMoreRealMappingRoots">
+      <list>
+        <SvnCopyRootSimple>
+          <option name="myVcsRoot" value="E:\juice-SSM\vpase" />
+          <option name="myCopyRoot" value="E:\juice-SSM\vpase" />
+        </SvnCopyRootSimple>
+      </list>
+    </option>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d4054504-e8c4-4446-b758-5e9b690f3005" name="Default Changelist" comment="" />
+      <created>1545901650752</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1545901650752</updated>
+      <workItem from="1545901654891" duration="2532000" />
+      <workItem from="1545986658154" duration="1602000" />
+      <workItem from="1546049269161" duration="54000" />
+      <workItem from="1546587569555" duration="6458000" />
+      <workItem from="1546596341186" duration="683000" />
+      <workItem from="1547427462523" duration="172000" />
+      <workItem from="1547427808328" duration="295000" />
+      <workItem from="1547428170250" duration="61000" />
+      <workItem from="1550025424947" duration="32000" />
+      <workItem from="1550106483302" duration="783000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="12672000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24731903" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Favorites" order="5" side_tool="true" />
+      <window_info id="Capture Tool" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Spring" order="7" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="CDI" order="5" />
+      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Bean Validation" order="10" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/echannelwap_dependence.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/res/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="3" column="31" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/realm/ShiroDbRealm.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/shiro-cofig.xml" />
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15036">
+          <caret line="537" column="31" selection-start-line="537" selection-start-column="31" selection-end-line="537" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$MAVEN_REPOSITORY$/commons-httpclient/commons-httpclient/3.1/commons-httpclient-3.1.pom">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/vo/ResCode.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/vo/ResultJson.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/utils/MD5Util.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/utils/WxConstants.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/service/VipService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/utils/AuthUtil.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/service/VipServiceImp.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/service/infac/vipServiceInfac.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/Category.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/StorePriceLine.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/Machine.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/Order.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/Vip.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/Address.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/SysCompanyUser.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/OrderDetail.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/SysUserMachine.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/Balance.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/dto/RegistPojo.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/entity/dto/LoginPojo.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/persistent/mapper/VipMapper.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/persistent/entity/dto/RegistPojo.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/persistent/entity/dto/LoginPojo.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/controller/AdressController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/xbz/orange/service/imp/VipServiceImp.java" />
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>vpase:war</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Spring|vpase</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: aopalliance:aopalliance:1.0</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

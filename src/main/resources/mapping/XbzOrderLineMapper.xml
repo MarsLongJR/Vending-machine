@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="XbzOrderLine">
+  <resultMap id="BaseResultMap" type="com.xbz.vpase.persistent.entity.XbzOrderLine">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="order_id" jdbcType="BIGINT" property="orderId" />
+    <result column="status" jdbcType="SMALLINT" property="status" />
+    <result column="processing_time" jdbcType="TIMESTAMP" property="processingTime" />
+    <result column="user_id" jdbcType="BIGINT" property="userId" />
+    <result column="processor" jdbcType="VARCHAR" property="processor" />
+    <result column="processor_tel" jdbcType="VARCHAR" property="processorTel" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, order_id, status, processing_time, user_id, processor, processor_tel
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from xbz_order_line
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from xbz_order_line
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.xbz.vpase.persistent.entity.XbzOrderLine">
+    insert into xbz_order_line (id, order_id, status, 
+      processing_time, user_id, processor, 
+      processor_tel)
+    values (#{id,jdbcType=BIGINT}, #{orderId,jdbcType=BIGINT}, #{status,jdbcType=SMALLINT}, 
+      #{processingTime,jdbcType=TIMESTAMP}, #{userId,jdbcType=BIGINT}, #{processor,jdbcType=VARCHAR}, 
+      #{processorTel,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xbz.vpase.persistent.entity.XbzOrderLine">
+    insert into xbz_order_line
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="orderId != null">
+        order_id,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="processingTime != null">
+        processing_time,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="processor != null">
+        processor,
+      </if>
+      <if test="processorTel != null">
+        processor_tel,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="orderId != null">
+        #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="processingTime != null">
+        #{processingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="processor != null">
+        #{processor,jdbcType=VARCHAR},
+      </if>
+      <if test="processorTel != null">
+        #{processorTel,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xbz.vpase.persistent.entity.XbzOrderLine">
+    update xbz_order_line
+    <set>
+      <if test="orderId != null">
+        order_id = #{orderId,jdbcType=BIGINT},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=SMALLINT},
+      </if>
+      <if test="processingTime != null">
+        processing_time = #{processingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=BIGINT},
+      </if>
+      <if test="processor != null">
+        processor = #{processor,jdbcType=VARCHAR},
+      </if>
+      <if test="processorTel != null">
+        processor_tel = #{processorTel,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xbz.vpase.persistent.entity.XbzOrderLine">
+    update xbz_order_line
+    set order_id = #{orderId,jdbcType=BIGINT},
+      status = #{status,jdbcType=SMALLINT},
+      processing_time = #{processingTime,jdbcType=TIMESTAMP},
+      user_id = #{userId,jdbcType=BIGINT},
+      processor = #{processor,jdbcType=VARCHAR},
+      processor_tel = #{processorTel,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+
+
+</mapper>
